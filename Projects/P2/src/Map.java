@@ -55,7 +55,30 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		return false;
+
+		//Replace old location with new one 
+		previous_location = locations.get(name);
+		//failed to move if entity is not in the board already 
+		if(previous_location == NULL) {
+			return false;
+		}
+		locations.put(name, loc);
+
+		//Actually moving the entity
+		components.get(name).setLocation(loc);
+
+		//Add in new location and vacate the old one by one entity that moved 
+		field.put(loc, type);
+		entities = field.get(previous_location);
+
+		//Entity was never there in the field, then failed to move 
+		if (entities.remove(type) == false) {
+			return false; 
+		}
+		//Put hashset back with one entity removed 
+		field.put(previous_location, entities);
+
+		return true;
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
