@@ -14,7 +14,7 @@ public class Ghost{
 
     	//Made helper function for get_valid_moves()
 	private boolean checkLocationValid(Location l) {
-		return map.getLoc(l) != Map.Type.WALL;
+		return this.myMap.getLoc(l) != Map.Type.WALL;
 	}
 
 	public ArrayList<Location> get_valid_moves() {
