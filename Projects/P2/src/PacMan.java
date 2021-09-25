@@ -16,22 +16,22 @@ public class PacMan{
 
 	//Made helper function for get_valid_moves()
 	private boolean checkLocationValid(Location l) {
-		return this.myMap.getLoc(l) == Map.Type.EMPTY || map.getLoc(l) == Map.Type.COOKIE;
+		return this.myMap.getLoc(l).contains(Map.Type.EMPTY);
 	}
 
 	public ArrayList<Location> get_valid_moves() {
 		//All possible locations 
-		left = new Location (this.myLoc.x - 1, this.myLoc.y);
-		right = new Location (this.myLoc.x + 1, this.myLoc.y);
-		down = new Location (this.myLoc.x, this.myLoc.y - 1);
-		up = new Location (this.myLoc.x, this.myLoc.y + 1);
-		diag_left_up = new Location (this.myLoc.x - 1, this.myLoc.y + 1);
-		diag_left_down = new Location (this.myLoc.x - 1, this.myLoc.y - 1);
-		diag_right_up = new Location (this.myLoc.x + 1, this.myLoc.y + 1);
-		diag_right_down = new Location (this.myLoc.x + 1, this.myLoc.y - 1);
+		Location left = new Location (this.myLoc.x - 1, this.myLoc.y);
+		Location right = new Location (this.myLoc.x + 1, this.myLoc.y);
+		Location down = new Location (this.myLoc.x, this.myLoc.y - 1);
+		Location up = new Location (this.myLoc.x, this.myLoc.y + 1);
+		Location diag_left_up = new Location (this.myLoc.x - 1, this.myLoc.y + 1);
+		Location diag_left_down = new Location (this.myLoc.x - 1, this.myLoc.y - 1);
+		Location diag_right_up = new Location (this.myLoc.x + 1, this.myLoc.y + 1);
+		Location diag_right_down = new Location (this.myLoc.x + 1, this.myLoc.y - 1);
 
 		//Store list to be returned here
-		moves = new ArrayList<Location>();
+		ArrayList<Location> moves = new ArrayList<Location>();
 
 		//Check if each location works 
 		if (checkLocationValid(left)) {
