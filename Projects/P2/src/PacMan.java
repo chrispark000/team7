@@ -16,7 +16,7 @@ public class PacMan{
 
 	//Made helper function for get_valid_moves()
 	private boolean checkLocationValid(Location l) {
-		return this.myMap.getLoc(l).contains(Map.Type.EMPTY);
+		return this.myMap.getLoc(l).contains(Map.Type.EMPTY) || this.myMap.getLoc(l).contains(Map.Type.COOKIE);
 	}
 
 	public ArrayList<Location> get_valid_moves() {
