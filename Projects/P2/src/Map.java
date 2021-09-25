@@ -57,19 +57,21 @@ public class Map{
 		//use the setLocation method for the component to move it to the new location
 
 		//Replace old location with new one 
-		previous_location = locations.get(name);
+		Location previous_location = locations.get(name);
 		//failed to move if entity is not in the board already 
-		if(previous_location == NULL) {
+		if(previous_location == null) {
 			return false;
 		}
 		locations.put(name, loc);
 
 		//Actually moving the entity
-		components.get(name).setLocation(loc);
+		components.get(name).setLocation(loc.x, loc.y);
 
-		//Add in new location and vacate the old one by one entity that moved 
-		field.put(loc, type);
-		entities = field.get(previous_location);
+		//Add in entity to new location and vacate the old one by one entity that moved 
+		HashSet<Type> curr_entities_new_location = field.get(loc);
+		curr_entities_new_location.add(type);
+		field.put(loc, curr_entities_new_location);
+		HashSet<Type> entities = field.get(previous_location);
 
 		//Entity was never there in the field, then failed to move 
 		if (entities.remove(type) == false) {
