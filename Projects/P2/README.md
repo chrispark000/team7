@@ -22,4 +22,4 @@ java -cp "src/" StartMenu
 
 ### Map Class
 
-1. `move()` This function was written by Michelle. I modify the locations, components, and field variables to reflect the new movement. If the entity was never there in the first place, it cannot be moved and this function returns false. The test checks for one valid and one invalid move. 
+1. `move()` This function was written by Michelle. I modified the locations, components, and field variables to reflect the new movement. If the entity was never there in the first place, it cannot be moved and this function returns false. The test checks for one valid and one invalid move. 
