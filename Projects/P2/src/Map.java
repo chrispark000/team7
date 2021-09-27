@@ -67,12 +67,16 @@ public class Map{
 		//Actually moving the entity
 		components.get(name).setLocation(loc.x, loc.y);
 
+
 		//Add in entity to new location and vacate the old one by one entity that moved 
-		HashSet<Type> curr_entities_new_location = field.get(loc);
+		HashSet<Type> curr_entities_new_location = new HashSet<>();
+		if(field.get(loc) != null) {
+			curr_entities_new_location = field.get(loc);
+		}
 		curr_entities_new_location.add(type);
 		field.put(loc, curr_entities_new_location);
 		HashSet<Type> entities = field.get(previous_location);
-
+		
 		//Entity was never there in the field, then failed to move 
 		if (entities.remove(type) == false) {
 			return false; 
