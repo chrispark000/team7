@@ -28,7 +28,7 @@ public class PacMan{
 			Random rand = new Random();
 			int randNum = rand.nextInt(moves.size());
 			Location newLoc = new Location(moves.get(randNum).x, moves.get(randNum).y);
-			myLoc = new Location(myLoc.x - newLoc.x, myLoc.y - newLoc.y);
+			myLoc = new Location(newLoc.x, newLoc.y);
 			return true;
 		}
 	}

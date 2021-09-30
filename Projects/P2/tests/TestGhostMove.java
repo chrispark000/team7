@@ -13,7 +13,9 @@ public class TestGhostMove extends TestCase {
 		//Start the game
 		frame.startGame();
 
+		ArrayList<Location> moves = pacman.get_valid_moves();
 		boolean canMove = pacman.move();
 		assertTrue(canMove);
+		assertTrue(moves.contains(pacman.myLoc));
 	}
 }
