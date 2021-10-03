@@ -39,7 +39,7 @@ public class PacMan{
 
 	public JComponent consume() { 
 		if(myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
-			return(myMap.eatCookie());
+			return(myMap.eatCookie(myName));
 		}
 		return null;
 	}
