@@ -64,7 +64,6 @@ public class Map{
 	}
 
 	public boolean attack(String Name) {
-		//update gameOver
 		Location ghost_loc = locations.get(Name);
 
 		if ((field.get(new Location(ghost_loc.x + 1,ghost_loc.y))).contains(Map.Type.PACMAN)){
@@ -106,7 +105,6 @@ public class Map{
 			gameOver = true;
 			return true;
 		}  
-
 
 
 		return false;
