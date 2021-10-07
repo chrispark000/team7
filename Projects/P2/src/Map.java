@@ -89,7 +89,14 @@ public class Map{
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return null;
+		HashSet<Type> entity = field.get(loc);
+		if (entity.equals(emptySet)) {
+			return emptySet;
+		} else if(entity.equals(wallSet)) {
+			return wallSet;
+		} else {
+			return entity;
+		}
 	}
 
 	public boolean attack(String Name) {
