@@ -10,7 +10,6 @@ public class TestGhostMove extends TestCase {
 		//Creating players
 		Ghost ghost = frame.addGhost(new Location(9, 11));
 
-
 		//Start the game
 		frame.startGame();
 
@@ -18,6 +17,5 @@ public class TestGhostMove extends TestCase {
 		boolean canMove = ghost.move();
 		assertTrue(canMove);
 		assertTrue(moves.contains(ghost.myLoc));
-
 	}
 }

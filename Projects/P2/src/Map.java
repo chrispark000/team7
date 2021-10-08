@@ -55,12 +55,48 @@ public class Map{
 	public boolean move(String name, Location loc, Type type) {
 		//update locations, components, and field
 		//use the setLocation method for the component to move it to the new location
-		return false;
+
+		//Replace old location with new one 
+		Location previous_location = locations.get(name);
+		//failed to move if entity is not in the board already 
+		if(previous_location == null) {
+			return false;
+		}
+		locations.put(name, loc);
+
+		//Actually moving the entity
+		components.get(name).setLocation(loc.x, loc.y);
+
+
+		//Add in entity to new location and vacate the old one by one entity that moved 
+		HashSet<Type> curr_entities_new_location = new HashSet<>();
+		if(field.get(loc) != null) {
+			curr_entities_new_location = field.get(loc);
+		}
+		curr_entities_new_location.add(type);
+		field.put(loc, curr_entities_new_location);
+		HashSet<Type> entities = field.get(previous_location);
+		
+		//Entity was never there in the field, then failed to move 
+		if (entities.remove(type) == false) {
+			return false; 
+		}
+		//Put hashset back with one entity removed 
+		field.put(previous_location, entities);
+
+		return true;
 	}
 	
 	public HashSet<Type> getLoc(Location loc) {
 		//wallSet and emptySet will help you write this method
-		return null;
+		HashSet<Type> entity = field.get(loc);
+		if (entity.equals(emptySet)) {
+			return emptySet;
+		} else if(entity.equals(wallSet)) {
+			return wallSet;
+		} else {
+			return entity;
+		}
 	}
 
 	public boolean attack(String Name) {
@@ -113,6 +149,21 @@ public class Map{
 	public JComponent eatCookie(String name) {
 		//update locations, components, field, and cookies
 		//the id for a cookie at (10, 1) is tok_x10_y1
-		return null;
+		Location pacman_loc = locations.get(name);
+		String cookie_name = "cookie"; //not sure where to get name of cookie from
+		JComponent ret;
+
+		//update field
+		if(field.get(pacman_loc).remove(Map.Type.COOKIE)) {
+			//update cookies
+			cookies--;
+
+			//update components
+			ret = components.remove(cookie_name);
+			//update locations
+			locations.remove(cookie_name);
+			return(ret);
+		}
+		return(null);
 	}
 }
