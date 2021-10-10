@@ -89,13 +89,18 @@ public class Map{
     
     public HashSet<Type> getLoc(Location loc) {
         //wallSet and emptySet will help you write this method
-        HashSet<Type> entity = field.get(loc);
-        if (entity.equals(emptySet)) {
-            return emptySet;
-        } else if(entity.equals(wallSet)) {
-            return wallSet;
+        HashSet<Type> entity = new HashSet<>();
+        if (loc!= null && field != null && field.get(loc) != null) {
+            entity = field.get(loc);
+            if (entity.equals(emptySet)) {
+                return emptySet;
+            } else if(entity.equals(wallSet)) {
+                return wallSet;
+            } else {
+                return entity;
+            }
         } else {
-            return entity;
+            return emptySet;
         }
     }
 
@@ -140,8 +145,7 @@ public class Map{
         if ((field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
             return true;
-        }  
-
+        }
 
         return false;
     }
@@ -150,18 +154,23 @@ public class Map{
         //update locations, components, field, and cookies
         //the id for a cookie at (10, 1) is tok_x10_y1
         Location pacman_loc = locations.get(name);
-        String cookie_name = "cookie"; //not sure where to get name of cookie from
+        String cookie_name = "tok_x"+pacman_loc.x+"_y"+pacman_loc.y; //not sure where to get name of cookie from
         JComponent ret;
 
         //update field
-        if(field.get(pacman_loc).remove(Map.Type.COOKIE)) {
+        HashSet<Type> entities = field.get(pacman_loc);
+        if(entities != null && entities.remove(Map.Type.COOKIE)) {
             //update cookies
-            cookies--;
+            cookies++;
 
             //update components
             ret = components.remove(cookie_name);
+
             //update locations
             locations.remove(cookie_name);
+
+            field.put(pacman_loc, emptySet);
+            
             return(ret);
         }
         return(null);
