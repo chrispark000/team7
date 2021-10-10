@@ -1,6 +1,7 @@
 import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
+import java.util.ArrayList;
 
 public class TestGhostMove extends TestCase {
 
@@ -8,7 +9,7 @@ public class TestGhostMove extends TestCase {
 		NoFrame frame = new NoFrame(); //Creates a new map and tokens
 
 		//Creating players
-		Ghost ghost = frame.addGhost(new Location(9, 11));
+		Ghost ghost = frame.addGhost(new Location(9, 11), "Inky", Color.red);
 
 		//Start the game
 		frame.startGame();
