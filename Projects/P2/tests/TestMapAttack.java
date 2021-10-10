@@ -2,9 +2,9 @@ import junit.framework.*;
 import java.awt.Color;
 import java.io.*;
 
-public class TestMapAttack {
+public class TestMapAttack extends TestCase{
 
-	public void testMapAttack() {
+	public void testMapAttack() throws FileNotFoundException{
 
 		NoFrame frame = new NoFrame();
 		Ghost ghost = frame.addGhost(new Location(9, 11), "clyde", Color.cyan);
