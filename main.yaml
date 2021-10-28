@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
-      -uses actions/checkout@v2
+      -uses: actions/checkout@v2
       -name: Test Andrew's Functions
       run: |
         java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
