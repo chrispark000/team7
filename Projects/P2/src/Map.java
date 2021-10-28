@@ -107,42 +107,42 @@ public class Map{
     public boolean attack(String Name) {
         Location ghost_loc = locations.get(Name);
 
-        if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y)) != null && (field.get(new Location(ghost_loc.x + 1,ghost_loc.y))).contains(Map.Type.PACMAN)){
+        if ((field.get(new Location(ghost_loc.x + 1,ghost_loc.y))).contains(Map.Type.PACMAN)){
             gameOver = true;
             return true;
         }  
 
-        if (field.get(new Location(ghost_loc.x,ghost_loc.y+1)) != null && (field.get(new Location(ghost_loc.x,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
+        if ((field.get(new Location(ghost_loc.x,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
             gameOver = true;
             return true;
         }  
 
-        if (field.get(new Location(ghost_loc.x - 1,ghost_loc.y)) != null && (field.get(new Location(ghost_loc.x-1,ghost_loc.y))).contains(Map.Type.PACMAN)){
+        if ((field.get(new Location(ghost_loc.x-1,ghost_loc.y))).contains(Map.Type.PACMAN)){
             gameOver = true;
             return true;
         }  
 
-        if (field.get(new Location(ghost_loc.x,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
+        if ((field.get(new Location(ghost_loc.x,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
             return true;
         }  
 
-        if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
+        if ((field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
             return true;
         }  
 
-        if (field.get(new Location(ghost_loc.x - 1,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x-1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
+        if ((field.get(new Location(ghost_loc.x-1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
             return true;
         }  
 
-        if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y+1)) != null && (field.get(new Location(ghost_loc.x+1,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
+        if ((field.get(new Location(ghost_loc.x+1,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
             gameOver = true;
             return true;
         }  
 
-        if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
+        if ((field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
             return true;
         }
