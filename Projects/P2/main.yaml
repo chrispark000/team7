@@ -34,7 +34,14 @@ jobs:
       - name: Run a multi-line script
         run: |
           javac -cp "src/" src/*.java
-          javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+	  javac -cp "tests/junit-4.10.jar:src/:tests/" src/*.java tests/*.java
+          
+  andrewstests:
+    runs-on: ubuntu-latest
+    container: openjdk
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Andrew's Functions
 	  java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
 	  java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestAttack
 	  java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie	
