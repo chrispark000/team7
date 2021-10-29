@@ -29,7 +29,7 @@ jobs:
       - name: Build Java Files
         run: |
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
-          javac -cp "Projects/P2/tests/junit-4.10.jar:Projects/P2/src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
+          javac -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
   AndrewsTests:
     runs-on: ubuntu-latest
     container: openjdk	
@@ -39,6 +39,7 @@ jobs:
 
       - name: Test Andrew's Functions
         run: |
-          java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestConsume
-          java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestAttack
-          java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:src/:Projects/P2/tests/" org.junit.runner.JUnitCore TestMapEatCookie
+          cd Projects/P2/
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestAttack
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
