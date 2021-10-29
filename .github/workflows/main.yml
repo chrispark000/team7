@@ -28,12 +28,12 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          pwd
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
           javac -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
 
       - name: Test Michelle's 3 functions
         run: |        
+          cd Projects/P2/
           java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
           java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves
           java -Djava.awt.headless=true -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
