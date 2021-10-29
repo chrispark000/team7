@@ -29,11 +29,6 @@ jobs:
         run: |
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
           javac -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
-  AndrewsTests:
-    runs-on: ubuntu-latest	
-
-    steps:
-      - uses: actions/checkout@v2
 
       - name: Test Andrew's Functions
         run: |
