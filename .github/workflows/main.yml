@@ -43,7 +43,7 @@ jobs:
       -uses: actions/checkout@v2
 
       -name: Test Andrew's Functions
-        run: |
+       run: |
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestConsume
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestAttack
           java -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapEatCookie
