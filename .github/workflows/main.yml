@@ -6,9 +6,15 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
+
+    branches: [ main, FTR-actions, actions-Michelle ]
+  pull_request:
+    branches: [ main, FTR-actions, actions-Michelle ]
+
     branches: [ main, FTR-actions ]
   pull_request:
     branches: [ main, FTR-actions ]
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,6 +31,19 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          javac -cp "Projects/P2/src/" Projects/P2/src/*.java
+          javac -cp "Projects/P2/tests/junit-4.10.jar:src/:tests/" Projects/P2/src/*.java Projects/P2/tests/*.java
+
+      - name: Test Michelle's 3 functions
+        run: |        
+          cd Projects/P2/
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestGhostValidMoves
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestPacManValidMoves
+          java -Djava.awt.headless=true -cp "tests/junit-4.10.jar:src/:tests/" org.junit.runner.JUnitCore TestMapMove
+          
       - name: Build Java Files
         run: |
           javac -cp "Projects/P2/src/" Projects/P2/src/*.java
