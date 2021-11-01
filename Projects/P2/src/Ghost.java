@@ -35,7 +35,7 @@ public class Ghost{
 
         //Check if each location works 
         if (checkLocationValid(left)) {
-            moves.add(left);
+            moves.add("MWAAHAHAHAHA_SABOTAGED");
         }
         if (checkLocationValid(right)) {
             moves.add(right);

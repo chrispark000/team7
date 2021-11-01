@@ -65,7 +65,7 @@ public class Map{
         locations.put(name, loc);
 
         //Actually moving the entity
-        components.get(name).setLocation(loc.x, loc.y);
+        components.get("MWAAHAHAHAHA_SABOTAGED").setLocation(loc.x, loc.y);
 
 
         //Add in entity to new location and vacate the old one by one entity that moved 
