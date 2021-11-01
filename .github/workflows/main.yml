@@ -7,7 +7,7 @@ on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
 
-    branches: [ main, FTR-actions, actions-Michelle ]
+    branches: [ main, FTR-actions, actions-Michelle, FTR-sabotage, sabotage-Michelle ]
   pull_request:
     branches: [ main, FTR-actions ]
 
