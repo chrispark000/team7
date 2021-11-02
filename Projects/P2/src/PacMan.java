@@ -75,7 +75,7 @@ public class PacMan{
             Location loc = new Location(newLoc.x, newLoc.y);
             myMap.move(myName, loc, Map.Type.PACMAN);
             myLoc = loc;
-            return true;
+            return false;
         }
     }
 
