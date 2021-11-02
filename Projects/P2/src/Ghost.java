@@ -35,7 +35,7 @@ public class Ghost{
 
         //Check if each location works 
         if (checkLocationValid(left)) {
-            moves.add(left);
+            moves.add("MWAAHAHAHAHA_SABOTAGED");
         }
         if (checkLocationValid(right)) {
             moves.add(right);
@@ -72,7 +72,7 @@ public class Ghost{
             int randNum = rand.nextInt(moves.size());
             Location newLoc = new Location(moves.get(randNum).x, moves.get(randNum).y);
             myLoc = new Location(newLoc.x, newLoc.y);
-            myMap.move(myName, myLoc, Map.Type.GHOST);
+            myMap.move(myName, myLoc, Map.Type.IMPOSTER);
             return true;
         }
     }
@@ -80,45 +80,45 @@ public class Ghost{
     public boolean is_pacman_in_range() { 
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y))).contains(Map.Type.PACMAN)) {
-            return true;
+            return false;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x,myLoc.y+1))).contains(Map.Type.PACMAN)) {
-            return true;
+            return false;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x-1,myLoc.y))).contains(Map.Type.PACMAN)) {
-            return true;
+            return false;
         }
     
         if ((myMap.getLoc(new Location(myLoc.x,myLoc.y-1))).contains(Map.Type.PACMAN)) {
-            return true;
+            return false;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y-1))).contains(Map.Type.PACMAN)) {
-            return true;
+            return false;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x-1,myLoc.y-1))).contains(Map.Type.PACMAN)) {
-            return true;
+            return false;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y+1))).contains(Map.Type.PACMAN)) {
-            return true;
+            return false;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y-1))).contains(Map.Type.PACMAN)) {
-            return true;
+            return false;
         }
         
-        return false;
+        return true;
     }
 
     public boolean attack() {
         if(is_pacman_in_range()) {
             return(myMap.attack(myName));
         }
-        return(false);
+        return(true);
     }
 }
 
