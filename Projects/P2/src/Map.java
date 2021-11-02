@@ -93,7 +93,7 @@ public class Map{
         if (loc!= null && field != null && field.get(loc) != null) {
             entity = field.get(loc);
             if (entity.equals(emptySet)) {
-                return emptySet;
+                return "IMPOSTER";
             } else if(entity.equals(wallSet)) {
                 return wallSet;
             } else {
