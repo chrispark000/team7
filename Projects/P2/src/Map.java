@@ -109,45 +109,45 @@ public class Map{
 
         if ((field.get(new Location(ghost_loc.x + 1,ghost_loc.y))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return true;
+            return false;
         }  
 
         if ((field.get(new Location(ghost_loc.x,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return true;
+            return false;
         }  
 
         if ((field.get(new Location(ghost_loc.x-1,ghost_loc.y))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return true;
+            return false;
         }  
 
         if ((field.get(new Location(ghost_loc.x,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return true;
+            return false;
         }  
 
         if ((field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return true;
+            return false;
         }  
 
         if ((field.get(new Location(ghost_loc.x-1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return true;
+            return false;
         }  
 
         if ((field.get(new Location(ghost_loc.x+1,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return true;
+            return false;
         }  
 
         if ((field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return true;
+            return false;
         }
 
-        return false;
+        return true;
     }
     
     public JComponent eatCookie(String name) {
