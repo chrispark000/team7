@@ -20,7 +20,7 @@ public class Ghost{
     }
 
     public ArrayList<Location> get_valid_moves() {
-                //All possible locations 
+               //All possible locations 
         Location left = new Location (this.myLoc.x - 1, this.myLoc.y);
         Location right = new Location (this.myLoc.x + 1, this.myLoc.y);
         Location down = new Location (this.myLoc.x, this.myLoc.y - 1);
@@ -59,7 +59,7 @@ public class Ghost{
             moves.add(diag_right_down);
         }
 
-        return (moves);         
+        return (moves);       
 
     }
 
@@ -118,7 +118,7 @@ public class Ghost{
         if(is_pacman_in_range()) {
             return(myMap.attack(myName));
         }
-        return(true);
+        return(false);
     }
 }
 
