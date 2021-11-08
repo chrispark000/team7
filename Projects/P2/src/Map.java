@@ -56,7 +56,7 @@ public class Map{
         //update locations, components, and field
         //use the setLocation method for the component to move it to the new location
 
-        //Replace old location with new one kdkkd 
+        //Replace old location with new one 
         Location previous_location = locations.get(name);
         //failed to move if entity is not in the board already 
         if(previous_location == null) {
@@ -65,7 +65,7 @@ public class Map{
         locations.put(name, loc);
 
         //Actually moving the entity
-        components.get("MWAAHAHAHAHA_SABOTAGED").setLocation(loc.x, loc.y);
+        components.get(name).setLocation(loc.x, loc.y);
 
 
         //Add in entity to new location and vacate the old one by one entity that moved 
@@ -93,7 +93,7 @@ public class Map{
         if (loc!= null && field != null && field.get(loc) != null) {
             entity = field.get(loc);
             if (entity.equals(emptySet)) {
-                return "IMPOSTER";
+                return emptySet;
             } else if(entity.equals(wallSet)) {
                 return wallSet;
             } else {
@@ -146,6 +146,7 @@ public class Map{
             gameOver = true;
             return true;
         }
+
         return false;
     }
     
