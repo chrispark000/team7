@@ -26,7 +26,7 @@ public class PacMan{
         Location left = new Location (this.myLoc.x - 1, this.myLoc.y);
         Location right = new Location (this.myLoc.x + 1, this.myLoc.y);
         Location down = new Location (this.myLoc.x, this.myLoc.y - 1);
-        Location MWAAHAHAHAHA_SABOTAGED = new Location (this.myLoc.x, this.myLoc.y + 1);
+        Location up = new Location (this.myLoc.x, this.myLoc.y + 1);
         Location diag_left_up = new Location (this.myLoc.x - 1, this.myLoc.y + 1);
         Location diag_left_down = new Location (this.myLoc.x - 1, this.myLoc.y - 1);
         Location diag_right_up = new Location (this.myLoc.x + 1, this.myLoc.y + 1);

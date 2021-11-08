@@ -65,7 +65,7 @@ public class Map{
         locations.put(name, loc);
 
         //Actually moving the entity
-        components.get("MWAAHAHAHAHA_SABOTAGED").setLocation(loc.x, loc.y);
+        components.get(name).setLocation(loc.x, loc.y);
 
 
         //Add in entity to new location and vacate the old one by one entity that moved 
@@ -93,7 +93,7 @@ public class Map{
         if (loc!= null && field != null && field.get(loc) != null) {
             entity = field.get(loc);
             if (entity.equals(emptySet)) {
-                return "IMPOSTER";
+                return emptySet;
             } else if(entity.equals(wallSet)) {
                 return wallSet;
             } else {
@@ -106,48 +106,41 @@ public class Map{
 
     public boolean attack(String Name) {
         Location ghost_loc = locations.get(Name);
+        boolean gameOver = false;
 
         if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y)) != null && (field.get(new Location(ghost_loc.x + 1,ghost_loc.y))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
         }  
 
         if (field.get(new Location(ghost_loc.x,ghost_loc.y+1)) != null && (field.get(new Location(ghost_loc.x,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
         }  
 
         if (field.get(new Location(ghost_loc.x - 1,ghost_loc.y)) != null && (field.get(new Location(ghost_loc.x-1,ghost_loc.y))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
         }  
 
         if (field.get(new Location(ghost_loc.x,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
         }  
 
         if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
         }  
 
         if (field.get(new Location(ghost_loc.x - 1,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x-1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
         }  
 
         if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y+1)) != null && (field.get(new Location(ghost_loc.x+1,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
         }  
 
         if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
         }
 
-        return true;
+        return gameOver;
     }
     
     public JComponent eatCookie(String name) {
