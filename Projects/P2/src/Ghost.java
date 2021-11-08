@@ -20,7 +20,7 @@ public class Ghost{
     }
 
     public ArrayList<Location> get_valid_moves() {
-               //All possible locations 
+                //All possible locations 
         Location left = new Location (this.myLoc.x - 1, this.myLoc.y);
         Location right = new Location (this.myLoc.x + 1, this.myLoc.y);
         Location down = new Location (this.myLoc.x, this.myLoc.y - 1);
@@ -35,7 +35,7 @@ public class Ghost{
 
         //Check if each location works 
         if (checkLocationValid(left)) {
-            moves.add("MWAAHAHAHAHA_SABOTAGED");
+            moves.add(left);
         }
         if (checkLocationValid(right)) {
             moves.add(right);
@@ -59,7 +59,7 @@ public class Ghost{
             moves.add(diag_right_down);
         }
 
-        return (moves);       
+        return (moves);         
 
     }
 
@@ -72,14 +72,12 @@ public class Ghost{
             int randNum = rand.nextInt(moves.size());
             Location newLoc = new Location(moves.get(randNum).x, moves.get(randNum).y);
             myLoc = new Location(newLoc.x, newLoc.y);
-
             myMap.move(myName, myLoc, Map.Type.GHOST);
-
             return true;
         }
     }
 
-  public boolean is_pacman_in_range() { 
+    public boolean is_pacman_in_range() { 
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y))).contains(Map.Type.PACMAN)) {
             return true;
