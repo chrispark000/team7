@@ -65,7 +65,7 @@ public class Map{
         locations.put(name, loc);
 
         //Actually moving the entity
-        components.get("MWAAHAHAHAHA_SABOTAGED").setLocation(loc.x, loc.y);
+        components.get(name).setLocation(loc.x, loc.y);
 
 
         //Add in entity to new location and vacate the old one by one entity that moved 
@@ -93,7 +93,7 @@ public class Map{
         if (loc!= null && field != null && field.get(loc) != null) {
             entity = field.get(loc);
             if (entity.equals(emptySet)) {
-                return "IMPOSTER";
+                return emptySet;
             } else if(entity.equals(wallSet)) {
                 return wallSet;
             } else {
@@ -109,57 +109,57 @@ public class Map{
 
         if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y)) != null && (field.get(new Location(ghost_loc.x + 1,ghost_loc.y))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
+            return true;
         }  
 
         if (field.get(new Location(ghost_loc.x,ghost_loc.y+1)) != null && (field.get(new Location(ghost_loc.x,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
+            return true;
         }  
 
         if (field.get(new Location(ghost_loc.x - 1,ghost_loc.y)) != null && (field.get(new Location(ghost_loc.x-1,ghost_loc.y))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
+            return true;
         }  
 
         if (field.get(new Location(ghost_loc.x,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
+            return true;
         }  
 
         if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
+            return true;
         }  
 
         if (field.get(new Location(ghost_loc.x - 1,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x-1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
+            return true;
         }  
 
         if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y+1)) != null && (field.get(new Location(ghost_loc.x+1,ghost_loc.y+1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
+            return true;
         }  
 
         if (field.get(new Location(ghost_loc.x + 1,ghost_loc.y-1)) != null && (field.get(new Location(ghost_loc.x+1,ghost_loc.y-1))).contains(Map.Type.PACMAN)){
             gameOver = true;
-            return false;
+            return true;
         }
 
-        return true;
+        return false;
     }
     
     public JComponent eatCookie(String name) {
         //update locations, components, field, and cookies
         //the id for a cookie at (10, 1) is tok_x10_y1
         Location pacman_loc = locations.get(name);
-        String cookie_name = "tok_x"+pacman_loc.y+"_y"+pacman_loc.x;
+        String cookie_name = "tok_x"+pacman_loc.x+"_y"+pacman_loc.y; //not sure where to get name of cookie from
         JComponent ret;
 
         //update field
         HashSet<Type> entities = field.get(pacman_loc);
-        if(entities == null && entities.remove(Map.Type.COOKIE)) {
+        if(entities != null && entities.remove(Map.Type.COOKIE)) {
             //update cookies
             cookies++;
 
@@ -176,4 +176,3 @@ public class Map{
         return(null);
     }
 }
-

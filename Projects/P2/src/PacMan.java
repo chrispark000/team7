@@ -26,7 +26,7 @@ public class PacMan{
         Location left = new Location (this.myLoc.x - 1, this.myLoc.y);
         Location right = new Location (this.myLoc.x + 1, this.myLoc.y);
         Location down = new Location (this.myLoc.x, this.myLoc.y - 1);
-        Location MWAAHAHAHAHA_SABOTAGED = new Location (this.myLoc.x, this.myLoc.y + 1);
+        Location up = new Location (this.myLoc.x, this.myLoc.y + 1);
         Location diag_left_up = new Location (this.myLoc.x - 1, this.myLoc.y + 1);
         Location diag_left_down = new Location (this.myLoc.x - 1, this.myLoc.y - 1);
         Location diag_right_up = new Location (this.myLoc.x + 1, this.myLoc.y + 1);
@@ -75,52 +75,51 @@ public class PacMan{
             Location loc = new Location(newLoc.x, newLoc.y);
             myMap.move(myName, loc, Map.Type.PACMAN);
             myLoc = loc;
-            return false;
+            return true;
         }
     }
 
     public boolean is_ghost_in_range() { 
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x,myLoc.y+1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x-1,myLoc.y))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
     
         if ((myMap.getLoc(new Location(myLoc.x,myLoc.y-1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y-1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x-1,myLoc.y-1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y+1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y-1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
         
-        return true;
+        return false;
     }
 
     public JComponent consume() { 
-        if(myMap.getLoc(myLoc).contains(Map.Type.WALL)) {
+        if(myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
             return(myMap.eatCookie(myName));
         }
         return null;
     }
 }
-
