@@ -35,7 +35,7 @@ public class Ghost{
 
         //Check if each location works 
         if (checkLocationValid(left)) {
-            moves.add("MWAAHAHAHAHA_SABOTAGED");
+            moves.add(left);
         }
         if (checkLocationValid(right)) {
             moves.add(right);
@@ -72,7 +72,7 @@ public class Ghost{
             int randNum = rand.nextInt(moves.size());
             Location newLoc = new Location(moves.get(randNum).x, moves.get(randNum).y);
             myLoc = new Location(newLoc.x, newLoc.y);
-            myMap.move(myName, myLoc, Map.Type.IMPOSTER);
+            myMap.move(myName, myLoc, Map.Type.PACMAN);
             return true;
         }
     }
