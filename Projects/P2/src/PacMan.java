@@ -61,7 +61,7 @@ public class PacMan{
             moves.add(diag_right_down);
         }
 
-        return (moves); 
+        return (moves);  
     }
 
     public boolean move() {
