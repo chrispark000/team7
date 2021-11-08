@@ -72,7 +72,7 @@ public class Ghost{
             int randNum = rand.nextInt(moves.size());
             Location newLoc = new Location(moves.get(randNum).x, moves.get(randNum).y);
             myLoc = new Location(newLoc.x, newLoc.y);
-            myMap.move(myName, myLoc, Map.Type.IMPOSTER);
+            myMap.move(myName, myLoc, Map.Type.GHOST);
             return true;
         }
     }
@@ -118,6 +118,6 @@ public class Ghost{
         if(is_pacman_in_range()) {
             return(myMap.attack(myName));
         }
-        return(false);
+        return(true);
     }
 }
