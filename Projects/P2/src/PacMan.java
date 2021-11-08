@@ -82,38 +82,38 @@ public class PacMan{
     public boolean is_ghost_in_range() { 
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x,myLoc.y+1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x-1,myLoc.y))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
     
         if ((myMap.getLoc(new Location(myLoc.x,myLoc.y-1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y-1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x-1,myLoc.y-1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y+1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
 
         if ((myMap.getLoc(new Location(myLoc.x+1,myLoc.y-1))).contains(Map.Type.GHOST)) {
-            return false;
+            return true;
         }
         
-        return true;
+        return false;
     }
 
     public JComponent consume() { 
