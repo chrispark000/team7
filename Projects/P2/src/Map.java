@@ -56,7 +56,7 @@ public class Map{
         //update locations, components, and field
         //use the setLocation method for the component to move it to the new location
 
-        //Replace old location with new one 
+        //Replace old location with new one kdkkd 
         Location previous_location = locations.get(name);
         //failed to move if entity is not in the board already 
         if(previous_location == null) {
