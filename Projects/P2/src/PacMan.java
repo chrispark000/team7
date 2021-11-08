@@ -75,7 +75,7 @@ public class PacMan{
             Location loc = new Location(newLoc.x, newLoc.y);
             myMap.move(myName, loc, Map.Type.PACMAN);
             myLoc = loc;
-            return false;
+            return true;
         }
     }
 
@@ -117,7 +117,7 @@ public class PacMan{
     }
 
     public JComponent consume() { 
-        if(myMap.getLoc(myLoc).contains(Map.Type.WALL)) {
+        if(myMap.getLoc(myLoc).contains(Map.Type.COOKIE)) {
             return(myMap.eatCookie(myName));
         }
         return null;

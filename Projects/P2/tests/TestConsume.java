@@ -16,6 +16,6 @@ public class TestConsume extends TestCase {
     		frame.startGame();
 
 		returnedCookie = (CookieComponent)pacman.consume();
-    		assertEquals(returnedCookie.getClass(), myCookie.getClass());
+    		assertSame(returnedCookie.getClass(), myCookie.getClass());
 	}
 }
